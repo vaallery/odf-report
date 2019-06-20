@@ -1,7 +1,7 @@
 module ODFReport
   class Field
 
-    DELIMITERS = %w([ ])
+    DELIMITERS = %w(< >)
 
     def initialize(opts, &block)
       @name = opts[:name]
@@ -58,9 +58,9 @@ module ODFReport
 
     def to_placeholder
       if DELIMITERS.is_a?(Array)
-        "#{DELIMITERS[0]}#{@name.to_s.upcase}#{DELIMITERS[1]}"
+        "#{DELIMITERS[0]}#{@name.to_s}#{DELIMITERS[1]}"
       else
-        "#{DELIMITERS}#{@name.to_s.upcase}#{DELIMITERS}"
+        "#{DELIMITERS}#{@name.to_s}#{DELIMITERS}"
       end
     end
 
